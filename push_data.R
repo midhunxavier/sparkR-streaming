@@ -2,7 +2,7 @@
 
 
 # Run this part on terminal (R) -------------------------------------------
-
+# Rscript ./sparkR-streaming/push_data.R
 j<-1
 
 # this is for checking locally... by changing host can send data to different IP adresses
