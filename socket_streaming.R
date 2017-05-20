@@ -17,8 +17,12 @@
 
 # Counts words in UTF8 encoded, '\n' delimited text received from the network.
 
-# To run this on your local machine, you need to first run a Netcat server
-# $ nc -lk 9999
+# To run this on your local machine, 
+# 1.you need to first run a Netcat server
+#   $ nc -lk 9999 
+# or
+# 2.run Rscript from local machine
+# Rscript ./sparkR-streaming/push_data.R
 # and then run the example
 # ./bin/spark-submit /sparkR-streaming/socket_streaming.R 
 # Load SparkR library into your R session
