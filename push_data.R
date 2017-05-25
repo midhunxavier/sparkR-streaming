@@ -18,9 +18,6 @@ f <- file("./sparkR-streaming/data.csv")
   sendme <- readLines(f, n=j)
   write_resp <- writeLines(sendme[j], con)
   j<-j+1
-  if (j == 4999){
-   j<-1
-  }
 
   print(j)
   #Sys.sleep(.0025)
