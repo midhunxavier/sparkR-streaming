@@ -1,0 +1,44 @@
+# Add libraries -----------------------------------------------------------
+
+
+library(SparkR)
+
+# define variables --------------------------------------------------------
+
+
+df<-c()
+df1<-data.frame()
+
+# Initialize Spark context ------------------------------------------------
+
+
+sc <- sparkR.init(appName = "Dstream_to_R_datafarme")
+sqlContext <- sparkRSQL.init(sc)
+ssc <- sparkR.streaming.init(sc, 10)
+
+# Listens port 9999 -------------------------------------------------------
+
+
+dstream <- socketTextStream(ssc,"localhost", 9999)
+
+foreachRDD(dstream, function(x)
+  {
+
+      df<-collect(x)[1:100]
+      
+      
+  
+        df1<-data.frame(unlist(df))
+         
+print(str(df1))
+        
+print(df1)
+        
+     
+    })
+
+
+
+startStreaming(ssc)
+awaitTermination(ssc)
+
